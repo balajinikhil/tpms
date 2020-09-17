@@ -1,0 +1,19 @@
+extends admin_base
+block content
+    h3(class="ui header" style="margin-top:7%") PPT's uploaded by #{name}
+    each el in ppts
+        div(class="ui segment")
+            div(style="")
+                p Class: #{el.class}
+                p Language: #{el.language}
+                p File Name: #{el.teacherPath}
+                p Status: #{el.approved ? "Approved" : "Pending"}
+                p View: 
+                    a(href=`/view-ppt-live/${el.teacherPath}` target="_blank")
+                        <i class="eye icon "></i>
+                p Download: 
+                    a(href=`/teacherUploads/${el.teacherPath}`) 
+                        <i class="download icon "></i>
+            
+    //- <iframe src='https://view.officeapps.live.com/op/embed.aspx?src=http://demoame.in/myapp/test-1.pptx' width='100%' height='600px' frameborder='0'>
+    

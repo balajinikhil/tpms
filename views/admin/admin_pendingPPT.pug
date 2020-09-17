@@ -1,0 +1,55 @@
+extends admin_base
+block content
+    //- h3(style="margin-top:7%") PPT Pending
+    //- each el in ppts
+    //-     div(class="ui segment")
+    //-         p Teacher Name : #{el.name}
+    //-         p Class: #{el.class}
+    //-         p Language: #{el.language}
+    //-         p Notes: #{el.notes}
+    //-         p Original Upload: #{new Date(el.uploadedOn).toLocaleString()};
+    //-         p File Name: #{el.ppt}
+    //-         p View: 
+    //-             a(href=`/view-ppt-live/${el.ppt}` target="_blank") Live
+    //-         a(href=`/usrAdmin/approvePPT/${el.ppt}`)
+    //-             button Approve
+    //-         a(href=`/usrAdmin/admin-reupload/${el.ppt}`)
+    //-             button Reupload
+    div(style="margin-top:11%")
+    <table id="myTable" class="ui celled table display" >
+    <thead>
+        <tr>
+        <th>Name</th>
+        <th>Class</th>
+        <th>Language</th>
+        <th>Notes</th>
+        <th>Original Upload</th>
+        <th>File Name</th>
+        <th>View</th>
+        <th>Reupload</th>
+        <th>Approve</th>
+        </tr>
+    </thead>
+    <tbody>
+        each el in ppts
+            tr
+                td=el.name
+                td=el.class
+                td=el.language
+                td=el.notes
+                td=el.uploadedOn.toLocaleString()
+                td
+                    a(href=`/teacherUploads/${el.ppt}` download=`${el.ppt}`) #{el.ppt}
+                td 
+                    a(href=`/view-ppt-live/${el.ppt}` target="_blank") Live
+                td
+                    a(href=`/usrAdmin/admin-reupload/${el.ppt}`)
+                        button(class="ui negative button") Reupload
+                td
+                    a(href=`/usrAdmin/approvePPT/${el.ppt}`)
+                        button(class="ui positive button") Approve
+
+
+    </tbody>
+    </table>
+    script(src="/scripts/jtable.js")

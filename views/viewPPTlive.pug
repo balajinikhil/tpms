@@ -1,0 +1,75 @@
+extends base
+block content
+    <div class="ui basic modal">
+        <div class="ui icon header">
+            <i class="exclamation triangle icon"></i> Report Issue
+        </div>
+        <div class="content">
+            <div class="ui form">
+
+                div(class="disabled field")
+                    input(type="text" value=`${pptz.ppt}` readOnly)
+                <div class="field">
+                    <label style="color:white">Issue</label>
+                    <input type="text">
+                </div>
+                
+            </div>
+
+        </div>
+        <div class="actions">
+            <div class="ui red basic cancel inverted button">
+            <i class="remove icon"></i> No
+            </div>
+            <div class="ui green ok inverted button">
+            <i class="checkmark icon"></i> Yes
+            </div>
+        </div>
+    </div>
+
+    div(class="ui segment")
+
+        h3(class="ui header" style="margin-top:10%") Viewing #{ppt} 
+        i(class="question circle icon" id="report")  Report
+        
+        <div class="ui large feed">
+            <div class="event">
+                <div class="label">
+                <img src="/images/avatar.jpg">
+                </div>
+                <div class="content">
+                <div class="summary">
+                    <a class="user"> #{pptz.name}
+                    </a> added on
+                    <div class="date"> #{pptz.uploadedOn.toDateString()}
+                    </div>
+                </div>
+                <div class="meta">
+                    
+                    a(class="like" href=`/dislike/${ppt}`)
+                        <i class="thumbs down icon"></i> #{pptz.dislike}
+                    
+                </div>
+                    
+                </div>
+                       
+            </div>
+        </div>
+        
+             
+        if pptz.format === "ppt"
+            //- iframe(src=`//docs.google.com/gview?url=http://127.0.0.1:7000/teacherUploads/${ppt}&embedded=true` style="width:600px; height:500px;" frameborder="0")
+            iframe(src=`https://view.officeapps.live.com/op/embed.aspx?src=https://amedemo.herokuapp.com/teacherUploads/${ppt}` width='90%' height='700vh' frameborder='0')
+        
+        else if pptz.format === "pdf"
+            embed(src=`/teacherUploads/${ppt}` type="application/pdf" width="100%" height="600px")
+        
+        else
+            h3 File format not supported
+            a(href=`/teacherUploads/${ppt}`, download=`${pptz.ppt}`, class="ui positive button") Download
+
+        script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js")
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js")
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/modal.min.js")
+
+        script(src="/scripts/view.js")

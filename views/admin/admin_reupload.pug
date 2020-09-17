@@ -1,0 +1,30 @@
+extends admin_base
+block content
+        div(style="margin-top:7%" class="ui segment")
+            h3 PPT REUPLOAD
+            form(action=`/usrAdmin/ppt-reupload`, method="post" enctype="multipart/form-data" class="ui equal width form")
+                .fields
+                    .field
+                        label(for="name") Name
+                        input(type="text", name="name", value=`${ppt.name}`, readOnly)
+                    .field
+                        label(for="email") Email
+                        input(type="email", name="email", value=`${ppt.email}`, readOnly)
+                .fields
+                    .field
+                        label(for="class") PPT for class
+                        input(type="text", name="class",  value =`${ppt.class}`, placeholder="PPT for class",  readOnly)
+                    .field
+                        label(for="class") PPT Language
+                        input(type="text" name="language", value =`${ppt.language}`,  placeholder="PPT language",  readOnly)
+                .fields
+                    .field
+                        label(for="prev") Previous Name
+                        input(type="text" name="prev" value=`${ppt.ppt}`, readOnly)
+                    .field(class="disabled")
+                        label(for="slug") Slug
+                        input(type="text" name="slug", value =`${ppt.slug}`,  readOnly)
+                    .field
+                        label(for="file") Upload File
+                        input(type="file", name="ppt-teach" accept=".ppt, .pptx, .pdf")
+                input(class="ui primary button" type="submit", value="submit")

@@ -1,0 +1,46 @@
+extends admin_base
+block content
+    //- div(class="ui segment" style="margin-top:7%")
+    //-     h3 PPT Approved
+    //-     each el in ppts
+    //-         div(class="teacherCard" style="display:flex; justify-content:space-around; align-items:center; border:1.3px solid black")
+    //-             p Teacher Name : #{el.name}
+    //-             p Class: #{el.class}
+    //-             p Language: #{el.language}
+    //-             p Notes: #{el.notes}
+    //-             p Original Upload: #{new Date(el.uploadedOn).toLocaleString()};
+    //-             p View PPT 
+    //-             a(href=`/usrAdmin/unapprovePPT/${el.ppt}`)
+    //-                 button UnApprove
+    div(class="ui segment"  style="margin-top:7%")
+        <table id="myTable" class="ui single line table display">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Class</th>
+                    <th>Language</th>
+                    <th>Notes</th>
+                    <th>Original Upload</th>
+                    <th>Live</th>
+                    <th>Unapprove PPT</th>
+                </tr>
+            </thead>
+            <tbody>
+                each el in ppts
+                    tr
+                        td=el.name
+                        td=el.class
+                        td=el.language
+                        td=el.notes
+                        td=el.uploadedOn.toLocaleString()
+                        td
+                            a(href=`/view-ppt-live/${el.ppt}` target="_blank")
+                                <i class="eye icon"></i>
+                        td
+                            a(href=`/usrAdmin/unapprovePPT/${el.ppt}`)
+                                button(class="ui negative button") UnApprove
+
+            </tbody>
+        </table>
+
+        script(src="/scripts/jtable.js")

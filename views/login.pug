@@ -1,0 +1,24 @@
+extends base
+block content
+    h1 Login
+    <div class="ui segment">
+        form(action="/login", method="post" class="ui large form")
+            <div class="two fields">
+                <div class="field">
+                    label(for="email") Email
+                    input(type="email" name="email" placeholder="email" required)
+                </div>
+                <div class="field">
+                    label(for="password") Password
+                    input(type="password", name='password' placeholder="password" required)
+                </div>
+            </div>
+            input(class="ui black basic button" type="submit" value="Submit")
+        <div class="ui large buttons" style="margin:2% auto; ">
+            a(href="/teacher" class="ui green button")
+                h4 Teacher sign up
+            <div class="or"></div>
+            a(href ="/forgot-password" class="ui teal button")
+                h4 Forgot Password
+        </div>
+    </div>

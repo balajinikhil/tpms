@@ -1,0 +1,71 @@
+extends base
+block content
+    //- form(action="/teacher/teacher-ppt", method="post")
+    div(class="ui segment")
+        h1(class="ui header") Welcome #{teacher.name}
+        a(href=`/teacher/update-info/${teacher.email}`)
+            <button class="ui red basic button"> 
+                <i class="edit icon"></i> Edit Information
+            </button>    
+    <table class="ui selectable inverted table">
+    <thead>
+        <tr>
+        <th>Class</th>
+        <th>Language</th>
+        <th>Download</th>
+        <th class="right aligned">Live</th>
+        </tr>
+    </thead>
+    <tbody>
+        each el in teacherPPT
+            tr
+                td=el.class
+                td=el.language
+                td
+                    a(href=`/teacherUploads/${el.teacherPath}`) 
+                        button(class="ui inverted green button") download
+                td(class="right aligned")
+                    a(href=`/view-ppt-live/${el.teacherPath}` target="_blank")
+                        button(class="ui inverted violet button") Live preview
+    </tbody>
+    </table>
+
+    div(class="ui segment")
+        h3 Upload PPT
+        form(action="/teacher/teacher-ppt-upload", method="post" enctype="multipart/form-data" class="ui equal width form")
+            div(class="fields")
+                    .field(class="disabled field")
+                        label(for="name") Name
+                        input(type="text", name="name", value=`${teacher.name}`, readOnly)
+                    .field(class="disabled field")
+                        label(for="email") Email
+                        input(type="email", name="email", value=`${teacher.email}`, readOnly)
+            .fields
+                .field
+                    label(for="number") PPT for class
+                    input(type="number", min="0", max="12" name="class", placeholder="PPT for class", required)
+                    //- input(type="text" name="language", placeholder="PPT language")
+                .field
+                    label(for="language") Select Language
+                    select(name="language", class="ui dropdown" required)
+                        option(value="English") English
+                        option(value="Kannada") Kannada
+                        option(value="Hindi") Hindi
+                        option(value="Malayalam") Malayalam  
+                        option(value="Punjabi") Punjabi   
+                        option(value="Gujarati") Gujarati   
+                        option(value="Tamil") Tamil   
+                        option(value="Bangla") Bangla   
+                        option(value="Telugu") Telugu   
+                        option(value="Oriya") Oriya   
+                        option(value="Marathi")  Marathi
+            .fields
+                .field
+                    label(for="notes") Notes  
+                    textarea(name="notes", cols="30", rows="10" placeholder="notes", required)
+                .field
+                    label(for="file") Select file
+                    input(type="file", name="ppt-teach" accept=".ppt, .pptx, .pdf", required)
+            input(class="ui primary button" type="submit", value="submit")
+    
+    script(src="/scripts/teacherLogOut.js")

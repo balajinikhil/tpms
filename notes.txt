@@ -1,0 +1,11 @@
+{
+    "username":"theadmin@admin.com",
+    "password":"ppt1234"
+}
+
+19
+
+
+bcrypt.compare takes 3 parameters; passwordToCheck, passwordHash, and a callback,
+
+# DB_LOCAL = mongodb://localhost:27017/teach

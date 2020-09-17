@@ -1,0 +1,30 @@
+extends admin_base
+block content
+    h2( class="ui header" style="margin-top:10%; text-align:center") Welcome Admin
+    div(class="ui inverted segment" )
+        section(class="admin-details")
+            h1(class="ui inverted header" style="text-align:center") Update Password
+                form(action="/usrAdmin/admin-pas-update", method="post" class="ui inverted equal width form")
+                    .fields
+                        .field(class="disabled field")
+                            label(for="username") username
+                            input(type="text", value=`${admin.username}` name="username" readOnly) 
+                        .field
+                            label(for="password") password    
+                            input(type="password" id="pas" name="password" required placeholder="Update Password") 
+                    button(class="ui inverted green button" type="submit" style="margin-top:2%") Change Password
+                    <div class="ui negative message err">
+
+                    </div>
+        
+        
+    
+
+    script(src="/scripts/adminPass.js")
+
+
+
+
+
+
+

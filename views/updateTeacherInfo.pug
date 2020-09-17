@@ -1,0 +1,26 @@
+extends base
+block content
+    div(class="ui segment")
+        form(action="/teacher/update-teacher-data", method="post" class="ui equal width form")
+            .fields
+                .field(class="disabled field")
+                    label(for="email") Email
+                    input(type="email", name="email" placeholder="Email", value=`${teacher.email}` readOnly)
+                .field(class="disabled field")
+                    label(for="name") Name
+                    input(type="text", name="name" placeholder="Name", value=`${teacher.name}`)
+            .fields
+                .field
+                    label(for="phone") Phone
+                    input(type="text", name="phone" placeholder="Phone", value=`${teacher.phone}`)
+                .field
+                    label(for="designation") Designation
+                    input(type="text", name="designation" placeholder="Designation", value=`${teacher.designation}`)
+                .field
+                    label(for="school") School
+                    input(type="text", name="school" placeholder="School", value=`${teacher.school}`)
+            div(class="ui buttons")        
+                input( class="ui positive button" type="submit", value="Submit")
+                .or
+                a(href="/forgot-password" )
+                    button(class="ui negative button") Change Password

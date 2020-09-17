@@ -1,0 +1,71 @@
+extends admin_base
+block content
+   
+    //- section(class="")
+    //-     h3 Teacher management
+    //-     each el in teachers
+    //-         div( class="teacherCard", style="")
+    //-             p Name : #{el.name}
+    //-             p Email : #{el.email}
+    //-             p Phone : #{el.phone}
+    //-             p Designation: #{el.designation}
+    //-             p School: #{el.school}
+    //-             p Email Verified: #{el.emailVerifed ? "verifed" :"unverified"}
+    //-             p Block Status: #{el.blocked ? "blocked" : "unblocked"}
+    //-             if !el.blocked
+    //-                 a(href=`/usrAdmin/teacher-management/block/${el.slug}`) 
+    //-                     button Block Teacher
+    //-             else
+    //-                 a(href=`/usrAdmin/teacher-management/unblock/${el.slug}`)
+    //-                     button Unblock Teacher
+                
+    //-             a(href=`/usrAdmin/teacher-management/ppt/${el.email}`) 
+    //-                 button Uploaded PPT
+    div(style="margin-top:7%")
+    <table id="myTable" class="ui selectable table display" >
+        <thead>
+            <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Designation</th>
+            <th>School</th>
+            <th>Email Verified</th>
+            <th>Block Status</th>
+            <th>Block </th>
+            <th>Uploaded PPT</th>
+            </tr>
+        </thead>
+        <tbody>
+            each el in teachers
+                <tr>
+                    <td>#{el.name}</td>
+                    <td>#{el.email}</td>
+                    <td>#{el.phone}</td>
+                    <td>#{el.designation}</td>
+                    <td>#{el.school}</td>
+                    if el.emailVerifed 
+                        td(style="color:#66ff33")
+                            <i class="icon checkmark"></i>
+                    else
+                        td(style="color:red")
+                            <i class="icon close"></i>
+
+                    <td>#{el.blocked ? "Blocked" : "Unblocked"}</td>
+                    if !el.blocked
+                        td
+                            a(href=`/usrAdmin/teacher-management/block/${el.slug}`) 
+                                button(class="ui inverted red button") Block Teacher
+                    else
+                        td
+                            a(href=`/usrAdmin/teacher-management/unblock/${el.slug}`)
+                                button(class="ui inverted green button") Unblock Teacher
+                    td
+                        a(href=`/usrAdmin/teacher-management/ppt/${el.email}`) 
+                            button(class="ui inverted primary button") Uploaded PPT
+                </tr>
+        </tbody>
+        </table>
+        
+        script(src="/scripts/jtable.js")
+    
