@@ -63,7 +63,17 @@ exports.dislikePPT = cA(async(req,res,next)=>{
 
   const ppt = await pptModel.findOne({ppt:req.params.ppt});
 
-   await pptModel.findOneAndUpdate({ppt:req.params.ppt}, {dislike:ppt.dislike + 1})
+  if(req.cookies.dislikePPT === ppt.ppt){
+    res.status(200).redirect(`/view-ppt-live/${req.params.ppt}`)
+  }
+  
+  else{
+    await pptModel.findOneAndUpdate({ppt:req.params.ppt}, {dislike:ppt.dislike + 1})
+      res.cookie(`dislikePPT`, `${ppt.ppt}`, {
+        expires: new Date(Date.now() + 90 * 24 * 60 * 60 * 1000),
+        httpOnly: true,
+      })
+      res.status(200).redirect(`/view-ppt-live/${req.params.ppt}`)
+  }
 
-   res.status(200).redirect(`/view-ppt-live/${req.params.ppt}`)
 })
