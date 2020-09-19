@@ -82,7 +82,11 @@ exports.dislikePPT = cA(async(req,res,next)=>{
 
 exports.issueSubmit = cA(async(req,res,next)=>{
 
-  const issue = await Issues.create(req.body);
+  const ppt = await pptModel.findOne({ppt:req.body.ppt});
+
+  const obj = {...req.body, name:ppt.name}
+
+  const issue = await Issues.create(obj);
 
   res.status(201).json({
     status:"reported",

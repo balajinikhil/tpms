@@ -181,6 +181,6 @@ exports.issuesRender = cA(async(req,res,next)=>{
   const issues = await Issues.find().sort("-createdOn")
 
   res.status(200).render('admin_issues',{
-    issues
+    issues,
   })
 })

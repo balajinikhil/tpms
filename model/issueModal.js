@@ -12,6 +12,9 @@ const issueReport = new mongoose.Schema({
     createdOn:{
         type:Date,
         default:Date.now()
+    },
+    name:{
+        type:String
     }
 
 })

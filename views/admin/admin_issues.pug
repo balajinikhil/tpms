@@ -8,6 +8,7 @@ block content
                     <th>Name</th>
                     <th>Live</th>
                     th Message
+                    th Teacher
                    
                 </tr>
             </thead> 
@@ -18,7 +19,7 @@ block content
                         td
                             a(href=`/view-ppt-live/${el.ppt}`) Live
                         td=el.message
-        
+                        td=el.name        
             </tbody>
         </table>
 
