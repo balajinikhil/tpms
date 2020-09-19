@@ -90,8 +90,8 @@ exports.issueSubmit = cA(async(req,res,next)=>{
   const issue = await Issues.create(obj);
 
   mailer.issueMessage({
-    email:'balajiedward007@gmail',
-    message:req.body.message
+    email:'balajinikhil96@gmail.com',
+    message:`Issue with ${req.body.message} with ${req.body.ppt}`
   })
 
   res.status(201).json({
