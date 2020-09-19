@@ -56,3 +56,30 @@ exports.forgotPasswordMail = catchAsyn(async (opt, token) => {
     }
   });
 });
+
+exports.issueMessage = catchAsyn(async(opt)=>{
+
+  const transporter = nodemailer.createTransport({
+    service:"gmail",
+    auth:{
+      user:process.env.EMAIL_ID,
+      pass:process.env.EMAIL_PASSWORD,
+    },
+    tls:{
+      rejectUnauthorized:false
+    }
+  });
+
+  const mailOptions = {
+    from:process.env.EMAIL_ID,
+    to:opt.email,
+    subject:"Issue with PPT",
+    text : opt.message
+  };
+
+  transporter.sendMail(mailOptions, (err,info)=>{
+    if(err) console.log(err);
+    else console.log(info);
+  })
+
+})

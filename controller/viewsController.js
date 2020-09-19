@@ -5,6 +5,7 @@ const mailer = require("./../Utils/sendMail");
 const pptModel = require("./../model/pptTeacher");
 const Issues = require('../model/issueModal');
 
+
 exports.homePage = cA(async (req, res, next) => {
   const ppts = await pptModel.find();
 
@@ -87,6 +88,11 @@ exports.issueSubmit = cA(async(req,res,next)=>{
   const obj = {...req.body, name:ppt.name}
 
   const issue = await Issues.create(obj);
+
+  mailer.issueMessage({
+    email:'balajiedward007@gmail',
+    message:req.body.message
+  })
 
   res.status(201).json({
     status:"reported",
