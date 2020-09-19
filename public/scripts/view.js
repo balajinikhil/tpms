@@ -23,7 +23,6 @@ const submitForm = async (e)=>{
     },
     body: JSON.stringify(obj),
   }).then((res)=>{
-    console.log(res);
   })
   
 }
@@ -33,3 +32,29 @@ formTag.addEventListener('submit', submitForm );
 
 const yesBtn = document.querySelector('#issueSubmit');
 yesBtn.addEventListener('click', submitForm);
+
+const dislike = document.querySelector(".like");
+const dislikeno = document.querySelector("#dislikeno");
+const ppt = document.querySelector('input[name="ppt"]')
+
+dislike.addEventListener('click', 
+
+async()=>{
+
+  fetch(`/dislike/${ppt.value}`).then(res=>res.json()).then((res)=>{
+
+    console.log(ppt);
+
+    if (res.status === "error"){
+      return
+    }else{
+      dislikeno.innerHTML = res.dislike
+    }
+
+  }).catch(err=>{
+
+    console.log(err);
+
+  })
+
+})
