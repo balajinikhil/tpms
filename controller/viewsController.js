@@ -3,6 +3,7 @@ const teacherModel = require("./../model/teacherModel");
 const AppError = require("../Utils/appError");
 const mailer = require("./../Utils/sendMail");
 const pptModel = require("./../model/pptTeacher");
+const Issues = require('../model/issueModal');
 
 exports.homePage = cA(async (req, res, next) => {
   const ppts = await pptModel.find();
@@ -76,4 +77,15 @@ exports.dislikePPT = cA(async(req,res,next)=>{
       res.status(200).redirect(`/view-ppt-live/${req.params.ppt}`)
   }
 
+})
+
+
+exports.issueSubmit = cA(async(req,res,next)=>{
+
+  const issue = await Issues.create(req.body);
+
+  res.status(201).json({
+    status:"reported",
+    issue
+  })
 })

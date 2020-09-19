@@ -21,7 +21,9 @@ router.get("/select-class/:class", viewsController.selectedClassRender);
 
 router.get("/view-ppt-live/:ppt", viewsController.viewPPTlive);
 
-router.get("/dislike/:ppt", viewsController.dislikePPT)
+router.get("/dislike/:ppt", viewsController.dislikePPT);
+
+router.post('/issues', viewsController.issueSubmit);
 
 
 

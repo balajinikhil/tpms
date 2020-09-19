@@ -22,9 +22,10 @@ block content
                     <th>Notes</th>
                     <th>Original Upload</th>
                     <th>Live</th>
+                    <th>File</th>
                     <th>Unapprove PPT</th>
                 </tr>
-            </thead>
+            </thead> 
             <tbody>
                 each el in ppts
                     tr
@@ -36,6 +37,7 @@ block content
                         td
                             a(href=`/view-ppt-live/${el.ppt}` target="_blank")
                                 <i class="eye icon"></i>
+                        td=el.ppt
                         td
                             a(href=`/usrAdmin/unapprovePPT/${el.ppt}`)
                                 button(class="ui negative button") UnApprove

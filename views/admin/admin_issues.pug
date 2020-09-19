@@ -1,0 +1,25 @@
+extends admin_base
+block content
+
+    div(class="ui segment"  style="margin-top:7%")
+        <table id="myTable" class="ui single line table display">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Live</th>
+                    th Message
+                   
+                </tr>
+            </thead> 
+            <tbody>
+                each el in issues
+                    tr
+                        td=el.ppt
+                        td
+                            a(href=`/view-ppt-live/${el.ppt}`) Live
+                        td=el.message
+        
+            </tbody>
+        </table>
+
+        script(src="/scripts/jtable.js")

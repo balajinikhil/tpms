@@ -6,6 +6,7 @@ const adminModel = require("./../model/adminModel");
 const AppError = require("./../Utils/appError");
 const teacherModel = require("./../model/teacherModel");
 const pptModel = require("./../model/pptTeacher");
+const Issues = require('../model/issueModal');
 
 const createToken = (id) => {
   return jwt.sign({ id: id }, process.env.JWT_SCERET, {
@@ -175,3 +176,11 @@ exports.adminUpdatePassword = cA(async (req, res, next) => {
 
   res.status(201).redirect("/login");
 });
+
+exports.issuesRender = cA(async(req,res,next)=>{
+  const issues = await Issues.find().sort("-createdOn")
+
+  res.status(200).render('admin_issues',{
+    issues
+  })
+})

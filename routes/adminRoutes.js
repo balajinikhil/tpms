@@ -33,4 +33,6 @@ router.get("/ppt-approved", adminController.pptAprovedGET);
 router.get("/admin-logout", adminController.adminLogout);
 router.post("/admin-pas-update", adminController.adminUpdatePassword);
 
+router.get('/issues', adminController.issuesRender);
+
 module.exports = router;

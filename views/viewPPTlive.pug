@@ -5,23 +5,23 @@ block content
             <i class="exclamation triangle icon"></i> Report Issue
         </div>
         <div class="content">
-            <div class="ui form">
+            <form class="ui form" id="issueForm">
 
                 div(class="disabled field")
-                    input(type="text" value=`${pptz.ppt}` readOnly)
+                    input(type="text" value=`${pptz.ppt}` name="ppt" readOnly)
                 <div class="field">
                     <label style="color:white">Issue</label>
-                    <input type="text">
+                    <input type="text" name="message" required>
                 </div>
                 
-            </div>
+            </form>
 
         </div>
         <div class="actions">
             <div class="ui red basic cancel inverted button">
             <i class="remove icon"></i> No
             </div>
-            <div class="ui green ok inverted button">
+            <div class="ui green ok inverted button" id="issueSubmit">
             <i class="checkmark icon"></i> Yes
             </div>
         </div>
