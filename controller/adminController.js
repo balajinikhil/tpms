@@ -39,7 +39,14 @@ exports.adminLogin = cA(async (req, res, next) => {
     const token = await createToken(admin._id);
     res.cookie("usrpptAdmin", token, cookieOptions);
 
-    res.status(200).redirect("/usrAdmin");
+    // res.status(200).redirect("/usrAdmin");
+
+    res.status(200).json({
+      status:"success",
+      redirect:"/usrAdmin"
+    })
+
+
   } else {
     next();
   }

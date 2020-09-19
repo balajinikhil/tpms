@@ -68,7 +68,7 @@ exports.dislikePPT = cA(async(req,res,next)=>{
   if(req.cookies.dislikePPT === ppt.ppt){
     res.status(200).json({
       status:'error',
-      dislike: ppt.dislike
+      dislike: ppt.dislike,
     })
   }
   

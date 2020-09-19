@@ -13,9 +13,6 @@ const submitForm = async (e)=>{
     message:document.querySelector('input[name="message"]').value
   }
   e.preventDefault();
-
-  console.log(obj);
-
     fetch('/issues', {
     method: 'POST', // or 'PUT'
     headers: {
@@ -37,24 +34,14 @@ const dislike = document.querySelector(".like");
 const dislikeno = document.querySelector("#dislikeno");
 const ppt = document.querySelector('input[name="ppt"]')
 
-dislike.addEventListener('click', 
-
-async()=>{
-
+dislike.addEventListener('click', async()=>{
+  document.querySelector('.thumbs').style.color = 'red';
   fetch(`/dislike/${ppt.value}`).then(res=>res.json()).then((res)=>{
-
-    console.log(ppt);
-
     if (res.status === "error"){
       return
     }else{
-      dislikeno.innerHTML = res.dislike
+      dislikeno.innerHTML = res.dislike;
+      return
     }
-
-  }).catch(err=>{
-
-    console.log(err);
-
   })
-
 })

@@ -2,17 +2,24 @@ extends base
 block content
     h1 Login
     <div class="ui segment">
-        form(action="/login", method="post" class="ui large form")
+        //- action="/login", method="post"
+        form( class="ui large form" id="loginForm" ng-app="loginApp" ng-controller="loginController")
             <div class="two fields">
                 <div class="field">
                     label(for="email") Email
-                    input(type="email" name="email" placeholder="email" required)
+                    input(type="email" name="email" placeholder="email" required ng-model="User.email" )
                 </div>
                 <div class="field">
                     label(for="password") Password
-                    input(type="password", name='password' placeholder="password" required)
+                    input(type="password", name='password' placeholder="password" required ng-model="User.password")
                 </div>
             </div>
+
+             <div class="ui error message" id="err" style="display:none">
+                <div class="header">{{errMsg}}</div>
+                <p></p>
+            </div>
+
             input(class="ui black basic button" type="submit" value="Submit")
         <div class="ui large buttons" style="margin:2% auto; ">
             a(href="/teacher" class="ui green button")
@@ -22,3 +29,5 @@ block content
                 h4 Forgot Password
         </div>
     </div>
+
+    script(src="/validatejs/login.js")

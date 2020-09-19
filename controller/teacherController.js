@@ -78,8 +78,6 @@ exports.teacherAddPPTPOST = cA(async (req, res, next) => {
     format:file[file.length -1]
   };
 
-  console.log(req.file.mimetype);
-
   const pptTeach = await teacherPPTModel.create(obj);
 
   //   res.send(pptTeach);

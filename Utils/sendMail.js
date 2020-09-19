@@ -2,16 +2,24 @@ const nodemailer = require("nodemailer");
 const catchAsyn = require("./catchAsync");
 
 exports.emailAuthMail = catchAsyn(async (opt) => {
+  // const transporter = nodemailer.createTransport({
+  //   service: "gmail",
+  //   auth: {
+  //     user: process.env.EMAIL_ID,
+  //     pass: process.env.EMAIL_PASSWORD,
+  //   },
+  //   tls: {
+  //     rejectUnauthorized: false,
+  //   },
+  // });
   const transporter = nodemailer.createTransport({
-    service: "gmail",
+    host: 'smtp.ethereal.email',
+    port: 587,
     auth: {
-      user: process.env.EMAIL_ID,
-      pass: process.env.EMAIL_PASSWORD,
-    },
-    tls: {
-      rejectUnauthorized: false,
-    },
-  });
+        user: 'mariano.volkman@ethereal.email',
+        pass: 'NJNX8Q7EccJH4FVbDM'
+    }
+});
 
   const mailOptions = {
     from: process.env.EMAIL_ID,
@@ -30,16 +38,25 @@ exports.emailAuthMail = catchAsyn(async (opt) => {
 });
 
 exports.forgotPasswordMail = catchAsyn(async (opt, token) => {
-  const transporter = nodemailer.createTransport({
-    service: "gmail",
+  // const transporter = nodemailer.createTransport({
+  //   service: "gmail",
+  //   auth: {
+  //     user: process.env.EMAIL_ID,
+  //     pass: process.env.EMAIL_PASSWORD,
+  //   },
+  //   tls: {
+  //     rejectUnauthorized: false,
+  //   },
+  // });
+
+  const transporter =nodemailer.createTransport({
+    host: 'smtp.ethereal.email',
+    port: 587,
     auth: {
-      user: process.env.EMAIL_ID,
-      pass: process.env.EMAIL_PASSWORD,
-    },
-    tls: {
-      rejectUnauthorized: false,
-    },
-  });
+        user: 'mariano.volkman@ethereal.email',
+        pass: 'NJNX8Q7EccJH4FVbDM'
+    }
+});
 
   const mailOptions = {
     from: process.env.EMAIL_ID,
@@ -59,16 +76,26 @@ exports.forgotPasswordMail = catchAsyn(async (opt, token) => {
 
 exports.issueMessage = catchAsyn(async(opt)=>{
 
-  const transporter = nodemailer.createTransport({
-    service:"gmail",
-    auth:{
-      user:process.env.EMAIL_ID,
-      pass:process.env.EMAIL_PASSWORD,
-    },
-    tls:{
-      rejectUnauthorized:false
+  // const transporter = nodemailer.createTransport(
+  //   {
+  //   service:"gmail",
+  //   auth:{
+  //     user:process.env.EMAIL_ID,
+  //     pass:process.env.EMAIL_PASSWORD,
+  //   },
+  //   tls:{
+  //     rejectUnauthorized:false
+  //   }
+  // });
+
+  const transporter =nodemailer.createTransport({
+    host: 'smtp.ethereal.email',
+    port: 587,
+    auth: {
+        user: 'mariano.volkman@ethereal.email',
+        pass: 'NJNX8Q7EccJH4FVbDM'
     }
-  });
+});
 
   const mailOptions = {
     from:process.env.EMAIL_ID,

@@ -16,6 +16,7 @@ const cookieOptions = {
 };
 
 exports.loginPOST = cA(async (req, res, next) => {
+    
   const emailIp = req.body.email;
   const passwordIp = req.body.password;
 
@@ -23,19 +24,42 @@ exports.loginPOST = cA(async (req, res, next) => {
     email: emailIp,
   });
 
-  if (await !teacher.emailVerifed) {
-    next(new AppError("Please verify your email", 401));
+  if(!teacher){
+
+    res.status(404).json({
+      status:"fail",
+      message:"check email and password"
+    })
+
+  }
+
+  else if (await !teacher.emailVerifed) {
+    
+    res.status(401).json({
+      status:"fail",
+      message:"Please verify your email"
+    })
+
   } else if (
     emailIp &&
     (await teacher.checkPassword(passwordIp, teacher.password))
   ) {
-    //SEND COOKIES
 
+    //SEND COOKIES
     const token = await createToken(teacher._id);
     res.cookie("teach", token, cookieOptions);
-    res.status(200).redirect("/teacher/teacher-ppt");
+    res.status(200).json({
+      status:"success",
+      redirect:"/teacher/teacher-ppt"
+    })
+
   } else {
-    next(new AppError("Check email and password", 401));
+
+    res.status(401).json({
+      status:"fail",
+      message:"check email and password"
+    })
+
   }
 });
 
