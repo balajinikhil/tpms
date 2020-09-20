@@ -21,7 +21,15 @@ exports.teacherSignUpGET = cA(async (req, res, next) => {
 });
 
 exports.teacherSignUpPOST = cA(async (req, res, next) => {
-  const newTeach = await teacherModel.create(req.body);
+
+  let filename;
+
+  if(req.file) filename = req.file.filename 
+  
+  
+
+  const creatObj ={...req.body, pic:filename }
+  const newTeach = await teacherModel.create(creatObj);
 
   //   res.status(201).json({
   //     status: "success",

@@ -53,8 +53,8 @@ exports.forgotPasswordMail = catchAsyn(async (opt, token) => {
     host: 'smtp.ethereal.email',
     port: 587,
     auth: {
-        user: 'mariano.volkman@ethereal.email',
-        pass: 'NJNX8Q7EccJH4FVbDM'
+        user: 'ethyl.pfeffer@ethereal.email',
+        pass: 'NXJYakcCx1HbYu5mwV'
     }
 });
 

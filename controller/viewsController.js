@@ -54,16 +54,20 @@ exports.selectedClassRender = cA(async (req, res, next) => {
 exports.viewPPTlive = cA(async (req, res, next) => {
   const ppt = req.params.ppt
   const pptz = await pptModel.findOne({ppt:req.params.ppt})
+  const teacher = await teacherModel.findOne({email:pptz.email});
 
   res.status(200).render("viewPPTlive", {
     ppt,
-    pptz 
+    pptz,
+    teacher 
   });
+  
 });
 
 exports.dislikePPT = cA(async(req,res,next)=>{
 
   const ppt = await pptModel.findOne({ppt:req.params.ppt});
+  
 
   if(req.cookies.dislikePPT === ppt.ppt){
     res.status(200).json({

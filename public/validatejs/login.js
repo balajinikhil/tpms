@@ -11,7 +11,8 @@ app.controller("loginController", function($scope, $http){
                 email:true
             },
             "password":{
-                required:true
+                required:true,
+                minlength:5
             }
         },
         messages:{
@@ -19,7 +20,7 @@ app.controller("loginController", function($scope, $http){
                 required:"Please enter email"
             },
             "password":{
-                required:"Please enter password"
+                required:"Please enter password",
             }
         },
         submitHandler:function(){

@@ -4,7 +4,7 @@ const authController = require("./../controller/authController");
 const fileStorage = require("./../controller/fileUpload");
 
 router.get("/", teacherController.teacherSignUpGET);
-router.post("/sign-up", teacherController.teacherSignUpPOST);
+router.post("/sign-up", fileStorage.profilePic, teacherController.teacherSignUpPOST);
 router.get("/link/:emailAuthToken", teacherController.confirmEmail);
 
 router.use(authController.protect);

@@ -64,6 +64,10 @@ const teacherSchema = new mongoose.Schema({
   createdOn:{
     type:Date,
     default:Date.now()
+  },
+  pic:{
+    type:String,
+    default:"default-profile.jpg"
   }
 });
 

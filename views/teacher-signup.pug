@@ -1,7 +1,7 @@
 extends base 
 block content
     div(class="ui segment")
-        form(action="/teacher/sign-up", method="post" class="ui equal width form")
+        form(action="/teacher/sign-up", id="singup-form" method="post" class="ui equal width form"  enctype="multipart/form-data")
             <div class="fields">
                 .field
                     label(for="name") Name
@@ -29,4 +29,10 @@ block content
                     label(for="passwordConfirm") Confirm Password
                     input(type="password", name="passwordConfirm" placeholder="Confirm Password " required)
             </div>
+            div(class="fields")
+                .field
+                    label(for="profile") Profile Picture
+                    input(type="file" name="profile" accept="image/*")
             input(class="ui primary button" type="submit", value="Submit")
+        
+        script(src="/validatejs/signup.js")

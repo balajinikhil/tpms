@@ -46,7 +46,6 @@ const pptTeacherSchema = new mongoose.Schema({
   },
   format:{
     type:String,
-    
   }
 });
 
