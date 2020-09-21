@@ -1,3 +1,4 @@
+const fs = require("fs");
 const jwt = require("jsonwebtoken");
 const cA = require("./../Utils/catchAsync");
 const teacherModel = require("./../model/teacherModel");
@@ -72,6 +73,7 @@ exports.teacherAddPPTGET = cA(async (req, res, next) => {
   });
 });
 
+// UPLOAD PPT 
 exports.teacherAddPPTPOST = cA(async (req, res, next) => {
   
   const file = req.file.filename.split('.')
@@ -92,6 +94,8 @@ exports.teacherAddPPTPOST = cA(async (req, res, next) => {
   res.status(201).redirect("/teacher/teacher-ppt");
 });
 
+
+// EDIT TEACHER INFO PAGE RENDER
 exports.updateTeacherDataGET = cA(async (req, res, next) => {
   const email = req.params.email;
 
@@ -102,6 +106,8 @@ exports.updateTeacherDataGET = cA(async (req, res, next) => {
   });
 });
 
+
+//EDIT TEACHER INFO POST
 exports.updateTeacherDataPOST = cA(async (req, res, next) => {
   let email = req.body.email;
   let obj = {
@@ -115,3 +121,25 @@ exports.updateTeacherDataPOST = cA(async (req, res, next) => {
 
   res.status(202).redirect("/teacher/teacher-ppt");
 });
+
+// UPDATE PROFILE UPDATE PROFILE PIC
+exports.updateProfilePic = cA(async(req,res,next)=>{
+
+  const del = await teacherModel.findOne({email:req.body.email});
+
+  if(del.ppt != "default-profile.jpg"){
+    fs.unlink(`./public/images/profile/${del.pic}`, function(err){
+      if(err) return console.log(err);
+      console.log('file deleted successfully');
+    });  
+}
+
+  const teacher = await teacherModel.findOneAndUpdate({
+    email:req.body.email
+  }, 
+  {pic:req.file.filename}
+  )
+
+  res.redirect(`/teacher/update-info/${req.body.email}`)
+
+})

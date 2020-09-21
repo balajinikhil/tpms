@@ -20,4 +20,6 @@ router.get("/logout", authController.logout);
 router.get("/update-info/:email", teacherController.updateTeacherDataGET);
 router.post("/update-teacher-data", teacherController.updateTeacherDataPOST);
 
+router.post("/update-profile-pic", fileStorage.updateProfile, teacherController.updateProfilePic)
+
 module.exports = router;

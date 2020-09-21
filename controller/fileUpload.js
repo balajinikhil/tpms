@@ -28,3 +28,17 @@ exports.profilePic = multer({
     fieldSize:10000000
   }
 }).single("profile");
+
+const updateProfilePic = multer.diskStorage({
+  destination:"./public/images/profile",
+  filename:function(req,file,cb){
+    cb(null, Date.now() + file.originalname)
+  }
+})
+
+exports.updateProfile = multer({
+  storage:updateProfilePic,
+  limits:{
+    fieldSize:10000000
+  }
+}).single("profile");

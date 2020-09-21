@@ -1,7 +1,38 @@
 extends base
 block content
     div(class="ui segment")
-        form(action="/teacher/update-teacher-data", method="post" class="ui equal width form")
+
+        <form method="post"  id="singup-form"  class="ui modal" action="/teacher/update-profile-pic" enctype="multipart/form-data">
+            <i class="close icon"></i>
+            <div class="header"> Profile Picture
+            </div>
+            
+            <div class="image content">
+                <div class="ui medium image">
+                    img(src=`/images/profile/${teacher.pic}` class="ui medium circular image")
+                </div>
+                <div class="description">
+                    <div class="ui header">Choose Profile Pic</div>
+                            input(type="hidden" name="email" value=`${teacher.email}` )
+                            input(type="file" name="profile" accept="image/*" required)
+                    </div>
+            </div>
+            <div class="actions">
+                <div class="ui black deny button"> Nope
+                </div>
+
+                <button type="submit" class="ui positive right labeled icon button"> Yep, that's me
+                    <i class="checkmark icon"></i>
+                </button>
+
+            </div>
+        </form>
+
+        div
+            img(src=`/images/profile/${teacher.pic}`, alt=`${teacher.name}` class="ui small circular image")
+            button(id="changePic") Change
+
+        form( to="/teacher/update-profile-pic" action="/teacher/update-teacher-data", method="post" class="ui equal width form")
             .fields
                 .field(class="disabled field")
                     label(for="email") Email
@@ -22,5 +53,7 @@ block content
             div(class="ui buttons")        
                 input( class="ui positive button" type="submit", value="Submit")
                 .or
-                a(href="/forgot-password" )
-                    button(class="ui negative button") Change Password
+                    a( href="/forgot-password" class="ui negative button") Change Password
+
+    script(src="/scripts/teacherEdit.js")
+    script(src="/validatejs/signup.js")
