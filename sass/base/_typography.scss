@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Hachi+Maru+Pop&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hachi+Maru+Pop&family=Roboto+Mono&display=swap');
+
+body{
+    font-family: $font-kid;
+}
+
+.heading-primary{
+    font-family: $font-kid;
+    color: #fff;
+    font-size: 3.5rem;
+    letter-spacing: 1.2rem;
+    text-transform: uppercase;
+    animation-name:moveInRight;
+    animation-duration: 2s;
+    animation-timing-function: ease-in;
+}
+
+.heading-secondary{
+    font-size: 3rem;
+    text-transform: capitalize;
+    font-family: $font-heading !important;
+}
+
+.heading-tertiary{
+    font-family: $font-heading !important;
+    font-size: 2.6rem;
+    text-transform: uppercase;
+    font-weight: 300;
+}

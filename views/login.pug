@@ -1,33 +1,41 @@
 extends base
 block content
-    h1 Login
-    <div class="ui segment">
-        //- action="/login", method="post"
-        form( class="ui large form" id="loginForm" ng-app="loginApp" ng-controller="loginController")
-            <div class="two fields">
-                <div class="field">
-                    label(for="email") Email
-                    input(type="email" name="email" placeholder="email" required ng-model="User.email" )
-                </div>
-                <div class="field">
-                    label(for="password") Password
-                    input(type="password", name='password' placeholder="password" required ng-model="User.password")
-                </div>
-            </div>
+    <section class="section-login">
+        .row
+            .col-1-of-2
+                img(src="/images/enter.png", alt="arrow" class="login__img")
+            .col-1-of-2
+                .login__box
+                    h1(class="heading-secondary") Login
+                    //- action="/login", method="post"
+                    form( class="row" id="loginForm" ng-app="loginApp" ng-controller="loginController")
+                        <div class="login__email">
+                            label(for="email") Email
+                            br
+                            input(type="email" name="email" placeholder="email" required ng-model="User.email" )
+                        </div>
+                        <div class="login__password">
+                            label(for="password") Password
+                            br
+                            input(type="password", name='password' placeholder="password" required ng-model="User.password")
+                        </div>
 
-             <div class="ui error message" id="err" style="display:none">
-                <div class="header">{{errMsg}}</div>
-                <p></p>
-            </div>
+                        <div class="ui error message" id="err" style="display:none">
+                            <div class="header">{{errMsg}}</div>
+                            <p></p>
+                        </div>
+                        
+                        .login__button
+                            input(class="ui black basic button login-btn" id="login-btn" type="submit" value="Submit")
+                        
+                        a(href ="/forgot-password" class="login__forgot") Forgot Password
+                        
+                        h3(class="heading-tertiary") OR
 
-            input(class="ui black basic button" type="submit" value="Submit")
-        <div class="ui large buttons" style="margin:2% auto; ">
-            a(href="/teacher" class="ui green button")
-                h4 Teacher sign up
-            <div class="or"></div>
-            a(href ="/forgot-password" class="ui teal button")
-                h4 Forgot Password
-        </div>
-    </div>
+                        a(href="/teacher" class="login__signup") Teacher sign up
+                        
+                   
+
+    </section>
 
     script(src="/validatejs/login.js")

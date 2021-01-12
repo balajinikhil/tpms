@@ -1,0 +1,32 @@
+.banner{
+
+    &__center{
+        position: absolute;
+        top: 40%;
+        left: 50%;
+    
+        transform: translate(-50%,-50%);
+    }
+
+    &__button{
+        margin-top: 3.5rem;
+        text-align: center;
+        animation-name:moveInBottom;
+        animation-duration: 2s;
+        animation-timing-function: ease-in;
+
+        &--login{
+            font-family: $font-heading;
+            padding: 2rem;
+            width: 18%;
+            font-size: 1.8rem;
+            letter-spacing: .5rem;
+            text-transform: uppercase;
+            text-decoration: none;
+            display: inline-block;
+            background-color: $color-white;
+            font-weight: 400;
+            color: $color-black;
+        }
+    }
+}

@@ -13,11 +13,11 @@ exports.emailAuthMail = catchAsyn(async (opt) => {
   //   },
   // });
   const transporter = nodemailer.createTransport({
-    host: 'smtp.ethereal.email',
-    port: 587,
+    host: 'smtp.mailtrap.io',
+    port: 25,
     auth: {
-        user: 'mariano.volkman@ethereal.email',
-        pass: 'NJNX8Q7EccJH4FVbDM'
+        user: '02425010aacd61',
+        pass: '7df100b0aec462'
     }
 });
 
@@ -50,11 +50,11 @@ exports.forgotPasswordMail = catchAsyn(async (opt, token) => {
   // });
 
   const transporter =nodemailer.createTransport({
-    host: 'smtp.ethereal.email',
-    port: 587,
+    host: 'smtp.mailtrap.io',
+    port: 25,
     auth: {
-        user: 'ethyl.pfeffer@ethereal.email',
-        pass: 'NXJYakcCx1HbYu5mwV'
+        user: '02425010aacd61',
+        pass: '7df100b0aec462'
     }
 });
 
@@ -89,11 +89,11 @@ exports.issueMessage = catchAsyn(async(opt)=>{
   // });
 
   const transporter =nodemailer.createTransport({
-    host: 'smtp.ethereal.email',
-    port: 587,
+    host: 'smtp.mailtrap.io',
+    port: 25,
     auth: {
-        user: 'mariano.volkman@ethereal.email',
-        pass: 'NJNX8Q7EccJH4FVbDM'
+        user: '02425010aacd61',
+        pass: '7df100b0aec462'
     }
 });
 

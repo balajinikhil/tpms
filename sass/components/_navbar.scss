@@ -1,0 +1,37 @@
+.navbar{
+    box-shadow: 0 1rem 2rem rgba($color-black, .15);
+    height: 5rem;
+    font-family: $font-heading;
+    letter-spacing: .3rem;
+    font-size: 1.5rem;
+    
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    
+    a{
+        color: $color-black;
+        text-decoration: none;
+        display: block;
+        margin-top: 2%;
+    }
+
+    &__logo{
+        
+        &--img{
+            border-radius: 50%;
+            height: 5rem;
+        }
+    }
+
+    &__heading{
+        margin-left: -36%;
+    }
+
+    &__login{
+        margin: .5rem 0;
+        font-weight: 400;
+    }
+
+}

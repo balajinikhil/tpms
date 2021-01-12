@@ -1,20 +1,22 @@
 extends base 
 block content
-    h3 PPT FOR CLASS <span class="clasz">#{clasz}</span>
-    h4 Select Language
-    .selLang
-        select(name="language" class="sele ui dropdown item" style="margin:2%")
-        button(class="btn" class="ui black basic button") Select Language
-           
+    section(class="section-classselect")
+        .u-center-text(class="u-margin-bottom-small u-margin-top-large")
+            h3(class="heading-secondary") PPT FOR CLASS <span class="clasz">#{clasz}</span>
+        h4(class="heading-tertiary") Select Language
+        .selLang
+            select(name="language" class="sele ui dropdown item" style="margin:2%")
+            button(class="btn" id="selectLang" class="ui black basic button") Select Language
+            
 
-    if ppts.length > 0     
-            .renderAcc(class="ui relaxed divided list")
-    
-    else
-        <div class="ui huge negative message">  
-            <div class="header"> We're sorry no PPT is avalible for this class
-            </div>
-            <p>Check back after some time</p>
-            </div>
+        if ppts.length > 0     
+                .renderAcc(class="ui relaxed divided list")
+        
+        else
+            <div class="ui huge negative message">  
+                <div class="header"> We're sorry no PPT is avalible for this class
+                </div>
+                <p>Check back after some time</p>
+                </div>
 
     script(src="/scripts/selectLanguage.js")

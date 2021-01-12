@@ -32,7 +32,7 @@ block content
 
     div(class="ui segment")
         h3 Upload PPT
-        form(action="/teacher/teacher-ppt-upload", method="post" enctype="multipart/form-data" class="ui equal width form")
+        form(action="/teacher/teacher-ppt-upload", id="addPPT" method="post" enctype="multipart/form-data" class="ui equal width form")
             div(class="fields")
                     .field(class="disabled field")
                         label(for="name") Name
@@ -43,7 +43,7 @@ block content
             .fields
                 .field
                     label(for="number") PPT for class
-                    input(type="number", min="0", max="12" name="class", placeholder="PPT for class", required)
+                    input(type="number", name="class", placeholder="PPT for class", required)
                     //- input(type="text" name="language", placeholder="PPT language")
                 .field
                     label(for="language") Select Language
@@ -69,3 +69,4 @@ block content
             input(class="ui primary button" type="submit", value="submit")
     
     script(src="/scripts/teacherLogOut.js")
+    script(src="/validatejs/addPPT.js" )

@@ -1,0 +1,82 @@
+.section-login{
+    height: 73.5vh;
+    margin-top:10rem;
+    
+    .login{        
+        &__box{
+            padding: 5.5rem;
+            box-shadow: 0 2rem 4rem rgba($color-black, .5);
+            width: 68%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        &__email{
+
+            input{
+                border-radius: 1.2rem;
+                padding: 1rem;
+                border: 1px solid $color-orange-dark;
+            }
+
+            input:focus{
+                outline:none;
+            }
+        }
+
+        &__password{
+            margin-top: 1.5rem;
+
+            input{
+                border-radius: 1.2rem;
+                padding: 1rem;
+                border: 1px solid $color-orange-dark;
+               
+            }
+
+            input:focus{
+                outline: none
+            }
+
+            
+        }
+
+        &__button{
+            margin-top: 1.5rem;
+            text-align: center;
+        }
+
+        &-btn{
+            text-align: center;
+            font-size: 1.6rem;
+        }
+
+        &__forgot{
+            text-decoration: none;
+            text-transform: uppercase;
+            color: $color-orange-dark;
+            display: inline-block;
+            margin-top: 1.5rem;
+            font-size: 1.5rem;
+            font-family: $font-heading;
+        }
+        
+        &__signup{
+            text-decoration: underline;
+            text-transform: uppercase;
+            color: #228B22;
+            display: inline-block;
+            margin-top: 1.5rem;
+            font-size: 1.5rem;
+            font-family: $font-heading;
+        }
+
+        &__img{
+            height: 20rem;
+            transform: translateY(11rem) translateX(10rem);            
+        }
+    }
+}
+

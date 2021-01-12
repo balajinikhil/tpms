@@ -1,3 +1,279 @@
-.error {
-    color: red !important;
- }
+@import url("https://fonts.googleapis.com/css2?family=Hachi+Maru+Pop&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Hachi+Maru+Pop&family=Roboto+Mono&display=swap");
+*, *::after, *::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+html {
+  font-size: 62.5% !important; }
+
+body {
+  box-sizing: inherit; }
+  body .error {
+    color: red !important; }
+
+body {
+  font-family: "Hachi Maru Pop", cursive; }
+
+.heading-primary {
+  font-family: "Hachi Maru Pop", cursive;
+  color: #fff;
+  font-size: 3.5rem;
+  letter-spacing: 1.2rem;
+  text-transform: uppercase;
+  animation-name: moveInRight;
+  animation-duration: 2s;
+  animation-timing-function: ease-in; }
+
+.heading-secondary {
+  font-size: 3rem;
+  text-transform: capitalize;
+  font-family: "Roboto Mono", monospace !important; }
+
+.heading-tertiary {
+  font-family: "Roboto Mono", monospace !important;
+  font-size: 2.6rem;
+  text-transform: uppercase;
+  font-weight: 300; }
+
+.u-center-text {
+  text-align: center; }
+
+.u-margin-bottom-large {
+  margin-bottom: 3.5rem; }
+
+.u-margin-bottom-small {
+  margin-bottom: 1.5rem; }
+
+.u-margin-top-large {
+  margin-top: 3.5rem; }
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(-10rem); }
+  80% {
+    transform: translateX(1rem); }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
+
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(3rem); }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
+
+.row {
+  max-width: 114rem;
+  margin: 0 auto; }
+  .row:not(:last-child) {
+    margin-bottom: 8rem; }
+  .row [class^="col-"] {
+    float: left; }
+    .row [class^="col-"]:not(:last-child) {
+      margin-right: 6rem; }
+  .row .col-1-of-2 {
+    width: calc((100% - 6rem)/ 2); }
+  .row .col-1-of-3 {
+    width: calc((100% - 2 * 6rem) / 3); }
+  .row .col-1-of-4 {
+    width: calc((100% - 3 * 6rem) / 4); }
+  .row::after {
+    content: "";
+    clear: both;
+    display: table; }
+
+.btn {
+  border: 0.1rem solid #f7a59c; }
+  .btn--login {
+    padding: .8rem;
+    font-size: 1.5rem;
+    border-radius: 25rem;
+    width: 12.5rem;
+    font-family: "Roboto Mono", monospace; }
+    .btn--login:hover {
+      background-color: #f7a59c;
+      color: #fff; }
+
+.navbar {
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+  height: 5rem;
+  font-family: "Roboto Mono", monospace;
+  letter-spacing: .3rem;
+  font-size: 1.5rem;
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+  align-items: center; }
+  .navbar a {
+    color: #000;
+    text-decoration: none;
+    display: block;
+    margin-top: 2%; }
+  .navbar__logo--img {
+    border-radius: 50%;
+    height: 5rem; }
+  .navbar__heading {
+    margin-left: -36%; }
+  .navbar__login {
+    margin: .5rem 0;
+    font-weight: 400; }
+
+.banner__center {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%); }
+
+.banner__button {
+  margin-top: 3.5rem;
+  text-align: center;
+  animation-name: moveInBottom;
+  animation-duration: 2s;
+  animation-timing-function: ease-in; }
+  .banner__button--login {
+    font-family: "Roboto Mono", monospace;
+    padding: 2rem;
+    width: 18%;
+    font-size: 1.8rem;
+    letter-spacing: .5rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: inline-block;
+    background-color: #fff;
+    font-weight: 400;
+    color: #000; }
+
+.about__text--details {
+  font-size: 1.6rem; }
+
+.about__ppt, .about__pdf {
+  height: 12rem;
+  padding: 2rem; }
+  .about__ppt:hover, .about__pdf:hover {
+    outline: 1.5rem solid orangered;
+    transform: translateY(-2rem); }
+
+.feature__icon {
+  font-size: 8rem;
+  margin-top: 1.5rem; }
+
+.feature__box {
+  padding: 3.5rem;
+  background: #fff;
+  height: 25rem;
+  opacity: 70%;
+  text-align: center;
+  transform: translateY(15rem);
+  border-radius: 2rem;
+  transition: all .2s;
+  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15); }
+  .feature__box:hover {
+    transform: translateY(10.5rem) scale(1); }
+
+.section-banner {
+  height: 93.5vh;
+  background-image: linear-gradient(to right bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("/images/banner.jpg");
+  background-position: top;
+  background-size: cover;
+  position: relative;
+  clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%); }
+
+.section-about {
+  margin-top: 8rem;
+  height: 45rem; }
+
+.section-feature {
+  height: 55rem;
+  background-image: linear-gradient(to right bottom, rgba(247, 165, 156, 0.3), rgba(255, 69, 0, 0.3)), url("https://images.unsplash.com/photo-1527624111800-38e9283e7470?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80");
+  transform: skewY(-7deg); }
+  .section-feature > * {
+    transform: skewY(7deg); }
+
+.section-select {
+  height: 75rem;
+  margin-top: -10rem;
+  background-color: #f7f7f7;
+  padding: 20rem 0;
+  text-align: center; }
+  .section-select #select-btn {
+    padding: 2rem;
+    font-size: 1.5rem;
+    box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.4); }
+
+.section-footer {
+  min-height: 5rem;
+  margin-top: auto;
+  width: 100%;
+  background-color: #000;
+  color: #fff;
+  padding: .5rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center; }
+
+.section-login {
+  height: 73.5vh;
+  margin-top: 10rem; }
+  .section-login .login__box {
+    padding: 5.5rem;
+    box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.5);
+    width: 68%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center; }
+  .section-login .login__email input {
+    border-radius: 1.2rem;
+    padding: 1rem;
+    border: 1px solid #f85442; }
+  .section-login .login__email input:focus {
+    outline: none; }
+  .section-login .login__password {
+    margin-top: 1.5rem; }
+    .section-login .login__password input {
+      border-radius: 1.2rem;
+      padding: 1rem;
+      border: 1px solid #f85442; }
+    .section-login .login__password input:focus {
+      outline: none; }
+  .section-login .login__button {
+    margin-top: 1.5rem;
+    text-align: center; }
+  .section-login .login-btn {
+    text-align: center;
+    font-size: 1.6rem; }
+  .section-login .login__forgot {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #f85442;
+    display: inline-block;
+    margin-top: 1.5rem;
+    font-size: 1.5rem;
+    font-family: "Roboto Mono", monospace; }
+  .section-login .login__signup {
+    text-decoration: underline;
+    text-transform: uppercase;
+    color: #228B22;
+    display: inline-block;
+    margin-top: 1.5rem;
+    font-size: 1.5rem;
+    font-family: "Roboto Mono", monospace; }
+  .section-login .login__img {
+    height: 20rem;
+    transform: translateY(11rem) translateX(10rem); }
+
+.section-classselect {
+  min-height: 86.5vh;
+  padding: 10rem; }
+  .section-classselect .button {
+    font-size: 1.5rem;
+    height: 3.8rem; }
+  .section-classselect .sele {
+    width: 25%;
+    border: 1px solid  orangered !important;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15); }

@@ -1,0 +1,17 @@
+.about{
+    &__text{
+
+        &--details{
+            font-size: 1.6rem;
+        }
+    }
+
+    &__ppt, &__pdf{
+        height: 12rem;
+        padding: 2rem;
+        &:hover{
+            outline: 1.5rem solid orangered;
+            transform: translateY(-2rem);
+        }
+    }
+}

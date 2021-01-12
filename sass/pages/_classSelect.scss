@@ -1,0 +1,15 @@
+ .section-classselect{
+     min-height: 86.5vh;
+     padding:10rem;
+
+     .button{
+         font-size: 1.5rem;
+         height: 3.8rem;
+        }
+        
+        .sele{
+            width: 25%;
+            border: 1px solid  orangered !important;
+            box-shadow: 0 1rem 2rem rgba($color-black, .15);
+     }
+ }

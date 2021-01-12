@@ -1,7 +1,7 @@
 const whichClass = document.querySelector(".clasz").innerHTML;
 const renderAcc = document.querySelector(".renderAcc");
 // const sel = document.querySelector(".sel");
-const btn = document.querySelector(".btn");
+const btn = document.querySelector("#selectLang");
 const selLang = document.querySelector(".selLang");
 const sele = document.querySelector(".sele");
 
@@ -47,6 +47,7 @@ document.addEventListener("DOMContentLoaded", async (e) => {
 });
 
 const langSelected = () => {
+  console.log(data);
   renderAcc.innerHTML = "";
 
   data.forEach((e) => {

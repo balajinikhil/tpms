@@ -1,11 +1,55 @@
 extends base 
 block content
-    h1(class="ui header") Select Class
+    header(class="section-banner")
+            <div class="banner__center">
+                <h1 class="heading-primary" >
+                    <span class="banner__heading--main">Sharing PowerPoint Presentation</span>
+                    <span class="banner__heading--sub">made easier</span>
+                </h1>
+                <div class="banner__button">
+                    <a href="/teacher" class="btn btn--login banner__button--login" >Join Us</a>
+                </div>
+            </div>        
 
-    
+    section(class="section-about")
+        div(class="u-center-text u-margin-bottom-large")
+            h2(class="heading-secondary") Upload it once, distribute it everywhere
 
-    div(class="ui list renderClass")
-        
+        .about
+            .row    
+                .col-1-of-2
+                    .about__text
+                        h3(class="heading-tertiary") Signup and upload
+                        <p class="about__text--details">How does it work? We take your PPTs, PDF and provide a shareable link which you can use hassel free.
+                        </p>
+                .col-1-of-2
+                        img(src="/images/ppt-icon.png", class="about__ppt" alt="ppt icon")
+                        img(src="/images/pdf.png", class="about__pdf" alt="pdf icon")
 
-    
+    section(class="section-feature")
+        .row
+            .col-1-of-4 
+                .feature__box
+                    <i class="feature__icon icon-basic-rss"></i>
+                    <h3 class="heading-tertiary">Fast Upload</h3>
+            .col-1-of-4
+                .feature__box
+                    <i class="feature__icon icon-basic-mouse"></i>
+                    <h3 class="heading-tertiary">Easy SignUp</h3>
+            .col-1-of-4
+                .feature__box
+                    <i class="feature__icon icon-basic-paperplane"></i>
+                    <h3 class="heading-tertiary">Sharable Link</h3>
+            .col-1-of-4 
+                .feature__box
+                    <i class="feature__icon icon-basic-server2"></i>
+                    <h3 class="heading-tertiary">Free Storage</h3>
+
+
+    section(class="section-select")
+        .select__text
+        div(class='u-center-text u-margin-large')
+            h2(class="heading-secondary") Discover. Share. Learn.
+        div(class="ui list renderClass")
+
     script(src="/scripts/home.js")

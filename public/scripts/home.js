@@ -19,11 +19,10 @@ const afterContentLoad = async () => {
     } else {
       renderClass.innerHTML += `
         <div class="item" style=" margin:15px; padding:3%">
-          <i class="folder icon"></i>
           <div class="content">
-              <div class="ui medium header">Class: ${e.class}</div>
+              <div class="heading-tertiary">Class: ${e.class}</div>
               <a href="/select-class/${e.class}" style="margin-top:1%" class="description"> 
-                <button class="ui primary right labeled icon button">
+                <button class="ui primary right labeled icon button" id="select-btn">
                 <i class="right arrow icon"></i>  
                 Select
               </button>

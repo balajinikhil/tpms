@@ -1,5 +1,5 @@
-const login = document.querySelector('.log-in')
-const aLogin = document.querySelector('.login-a')
+const login = document.querySelector('#log-in')
+const aLogin = document.querySelector('#log-in')
 
 document.addEventListener('DOMContentLoaded', ()=>{
 

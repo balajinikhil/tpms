@@ -37,12 +37,12 @@ app.use(express.static(path.join(__dirname, "/public")));
 app.use(helmet());
 
 // limit requests from same IP
-const limiter = rateLimit({
-  max: 100,
-  windowMs: 60 * 60 * 1000,
-  message: "Too many requests from this IP, please try again in an hour!",
-});
-app.use("/", limiter);
+// const limiter = rateLimit({
+//   max: 100,
+//   windowMs: 60 * 60 * 1000,
+//   message: "Too many requests from this IP, please try again in an hour!",
+// });
+// app.use("/", limiter);
 
 //URL ENCODE DATA
 app.use(
