@@ -27,12 +27,12 @@ block content
         </div>
     </div>
 
-    div(class="ui segment")
-
-        h3(class="ui header" style="margin-top:10%") Viewing #{ppt} 
-        i(class="question circle icon" id="report")  Report
+    section(class="section-live")
+        .u-center-text(class="u-margin-bottonm-large u-margin-top-large")
+            h3(class="heading-secondary") Viewing <span class="u-color-orange">#{ppt}</span> 
+        i(class="icon-basic-flag2" id="report")  Report
         
-        <div class="ui large feed">
+        <div class="live__content">
             <div class="event">
                 <div class="label">
                 img(src=`/images/profile/${teacher.pic}` alt=`${teacher.name}`)

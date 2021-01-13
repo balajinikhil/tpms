@@ -49,6 +49,9 @@ body {
 .u-margin-top-large {
   margin-top: 3.5rem; }
 
+.u-color-orange {
+  color: #f85442; }
+
 @keyframes moveInRight {
   0% {
     opacity: 0;
@@ -277,3 +280,19 @@ body {
     width: 25%;
     border: 1px solid  orangered !important;
     box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15); }
+
+.section-live {
+  padding: 0 20rem;
+  position: relative; }
+  .section-live #report {
+    position: absolute;
+    left: 75%;
+    top: 15%;
+    color: red;
+    font-size: 1.6rem;
+    font-family: "Roboto Mono", monospace;
+    cursor: pointer; }
+  .section-live .ui,
+  .section-live .basic,
+  .section-live .modal {
+    font-size: 2.5rem; }
